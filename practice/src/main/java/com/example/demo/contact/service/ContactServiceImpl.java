@@ -1,11 +1,11 @@
-package com.example.demo.service;
+package com.example.demo.contact.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.Contact;
-import com.example.demo.form.ContactForm;
-import com.example.demo.repository.ContactRepository;
+import com.example.demo.contact.entity.Contact;
+import com.example.demo.contact.form.ContactForm;
+import com.example.demo.contact.repository.ContactRepository;
 
 @Service
 public class ContactServiceImpl implements ContactService {
