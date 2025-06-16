@@ -23,8 +23,8 @@
 				<td th:text="${contact.lastName}"></td>
 				<td th:text="${contact.firstName}"></td>
 				<td th:text="${contact.contactType}"></td>
-				<td th:text="${#dates.format(contact.createdAt, 'yyyy/MM/dd HH:mm')}"></td>
-				<td th:text="${#dates.format(contact.updatedAt, 'yyyy/MM/dd HH:mm')}"></td>
+				<td th:text="${#temporals.format(contact.createdAt, 'yyyy/MM/dd HH:mm')}"></td>
+				<td th:text="${#temporals.format(contact.updatedAt, 'yyyy/MM/dd HH:mm')}"></td>
 			</tr>
 		</tbody>
 	</table>

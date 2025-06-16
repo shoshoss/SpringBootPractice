@@ -16,7 +16,7 @@ public class AdminController {
 	@Autowired
 	private ContactService contactService;
 	
-	@GetMapping("/admin/contracts")
+	@GetMapping("/admin/contacts")
 	public String showContactList(Model model) {
 		List<Contact> contactList = contactService.getAllContacts();
 		model.addAttribute("contactList", contactList);
