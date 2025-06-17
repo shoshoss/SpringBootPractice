@@ -1,6 +1,7 @@
 package com.example.demo.contact.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,15 @@ public class ContactServiceImpl implements ContactService {
 		contactRepository.save(contact);
 	}
 	
+	// 一覧
 	@Override
 	public List<Contact> getAllContacts() {
 		return contactRepository.findAll();
+	}
+	
+	// 詳細
+	@Override
+	public Optional<Contact> getContactById(Long id) {
+		return contactRepository.findById(id);
 	}
 }
