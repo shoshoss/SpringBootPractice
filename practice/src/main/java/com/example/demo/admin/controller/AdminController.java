@@ -31,4 +31,11 @@ public class AdminController {
 		model.addAttribute(contactService.getContactById(id).orElse(null));
 		return "admin/contactDetail";
 	}
+	
+	// 編集
+	@GetMapping("/admin/contacts/{id}/edit")
+	public String editContact(@PathVariable Long id, Model model) {
+		model.addAttribute("contactForm", contactService.getEditContact(id));
+		return "admin/contactEdit";
+	}
 }
