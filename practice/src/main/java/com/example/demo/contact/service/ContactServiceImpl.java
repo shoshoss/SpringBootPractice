@@ -91,5 +91,4 @@ public class ContactServiceImpl implements ContactService {
 	public void deleteContact(Long id) {
 		contactRepository.deleteById(id);
 	}
-
 }
