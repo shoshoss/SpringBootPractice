@@ -11,4 +11,6 @@ public interface AdminService {
 	List<Contact> getAllContacts(); // 一覧取得用
 	Optional<Contact> getContactById(Long id); // 詳細取得用
 	ContactForm getEditContact(Long id); // 編集用
+	void updateContact(Long id, ContactForm contactForm);
+	void deleteContact(Long id);
 }

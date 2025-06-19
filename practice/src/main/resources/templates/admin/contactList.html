@@ -29,6 +29,7 @@
 				<td>
 					<a th:href="@{/admin/contacts/{id}(id=${contact.id})}">詳細</a>
 					<a th:href="@{/admin/contacts/{id}/edit(id=${contact.id})}">編集</a>
+					<a th:href="@{/admin/contacts/{id}/delete(id=${contact.id})}" onclick="return confirm('本当に削除しますか？');">削除</a>
 				</td>
 			</tr>
 		</tbody>
