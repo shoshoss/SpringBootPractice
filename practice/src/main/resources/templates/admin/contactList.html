@@ -28,6 +28,7 @@
 				<td th:text="${#temporals.format(contact.updatedAt, 'yyyy/MM/dd HH:mm')}"></td>
 				<td>
 					<a th:href="@{/admin/contacts/{id}(id=${contact.id})}">詳細</a>
+					<a th:href="@{/contact}">作成</a>
 					<a th:href="@{/admin/contacts/{id}/edit(id=${contact.id})}">編集</a>
 					<a th:href="@{/admin/contacts/{id}/delete(id=${contact.id})}" onclick="return confirm('本当に削除しますか？');">削除</a>
 				</td>
