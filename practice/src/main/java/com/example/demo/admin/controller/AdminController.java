@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.admin.service.AdminService;
 import com.example.demo.contact.entity.Contact;
 import com.example.demo.contact.form.ContactForm;
+import com.example.demo.contact.service.ContactService;
 
 @Controller
 public class AdminController {
 	
 	@Autowired
-	private AdminService adminService;
+	private ContactService contactService;
 	
 	// 一覧
 	@GetMapping("/admin/contacts")
 	public String showContactList(Model model) {
-		List<Contact> contactList = adminService.getAllContacts();
+		List<Contact> contactList = contactService.getAllContacts();
 		model.addAttribute("contactList", contactList);
 		return "admin/contactList";
 	}
@@ -33,14 +33,14 @@ public class AdminController {
 	// 詳細
 	@GetMapping("/admin/contacts/{id}")
 	public String showDetail(@PathVariable Long id, Model model) {
-		model.addAttribute(adminService.getContactById(id).orElse(null));
+		model.addAttribute(contactService.getContactById(id).orElse(null));
 		return "admin/contactDetail";
 	}
 	
 	// 編集
 	@GetMapping("/admin/contacts/{id}/edit")
 	public String editContact(@PathVariable Long id, Model model) {
-		model.addAttribute("contactForm", adminService.getEditContact(id));
+		model.addAttribute("contactForm", contactService.getEditContact(id));
 		return "admin/contactEdit";
 	}
 	
@@ -54,14 +54,14 @@ public class AdminController {
 			return "admin/contactEdit";
 		}
 		
-		adminService.updateContact(id, contactForm);
+		contactService.updateContact(id, contactForm);
 		return "redirect:/admin/contacts";
 	}
 	
 	// 削除
 	@GetMapping("/admin/contacts/{id}/delete")
 	public String deleteContact(@PathVariable Long id) {
-		adminService.deleteContact(id);
+		contactService.deleteContact(id);
 		return "redirect:/admin/contacts";
 	}
 }
