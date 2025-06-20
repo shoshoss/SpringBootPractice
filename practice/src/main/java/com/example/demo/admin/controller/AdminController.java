@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.admin.form.SigninForm;
 import com.example.demo.admin.form.SignupForm;
 import com.example.demo.admin.service.AdminService;
 import com.example.demo.contact.entity.Contact;
@@ -28,7 +29,7 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@GetMapping("/admin/signup")
-	public String admin(Model model) {
+	public String signup(Model model) {
 		model.addAttribute("signupForm", new SignupForm());
 		
 		return "/admin/signup";
@@ -44,6 +45,13 @@ public class AdminController {
 		adminService.saveAdmin(adminForm);
 		
 		return "/admin/completion";
+	}
+	
+	@GetMapping("/admin/signin")
+	public String signin(Model model) {
+		model.addAttribute("signinForm", new SigninForm());
+		
+		return "/admin/signin";
 	}
 	
 	/**
