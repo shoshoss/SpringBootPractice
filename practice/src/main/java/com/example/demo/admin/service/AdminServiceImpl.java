@@ -13,6 +13,11 @@ public class AdminServiceImpl implements AdminService {
 	private AdminRepository adminRepository;
 	
 	@Override
+	public boolean isEmailExists(String email) {
+		return adminRepository.existsByEmail(email);
+	}
+	
+	@Override
 	public void saveAdmin(SignupForm adminForm) {
 		Admin admin = new Admin();
 		
@@ -23,5 +28,4 @@ public class AdminServiceImpl implements AdminService {
 
 		adminRepository.save(admin);
 	}
-
 }

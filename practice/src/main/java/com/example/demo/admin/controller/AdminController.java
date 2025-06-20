@@ -42,6 +42,11 @@ public class AdminController {
 			return "/admin/signup";
 		}
 		
+		if (adminService.isEmailExists(adminForm.getEmail())) {
+			result.rejectValue("email", "error.signupForm", "そのメールアドレスは既に登録されています。");
+			return "/admin/signup";
+		}
+		
 		adminService.saveAdmin(adminForm);
 		
 		return "/admin/completion";
