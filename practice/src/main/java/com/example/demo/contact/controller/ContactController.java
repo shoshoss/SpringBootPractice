@@ -40,7 +40,7 @@ public class ContactController {
 		session.setAttribute("contactForm", contactForm);
 		
 		return "redirect:/contact/confirm";
-	}	
+	}
 	
 	@GetMapping("/contact/confirm")
 	public String confirm(Model model, HttpServletRequest request) {
