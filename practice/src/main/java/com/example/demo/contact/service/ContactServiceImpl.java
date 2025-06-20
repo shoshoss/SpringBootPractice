@@ -32,19 +32,25 @@ public class ContactServiceImpl implements ContactService {
 		contactRepository.save(contact);
 	}
 	
-	// 一覧
+	/**
+	 * 一覧
+	 */
 	@Override
 	public List<Contact> getAllContacts() {
 		return contactRepository.findAll();
 	}
 	
-	// 詳細
+	/**
+	 * 詳細
+	 */
 	@Override
 	public Optional<Contact> getContactById(Long id) {
 		return contactRepository.findById(id);
 	}
 	
-	// 編集（問い合わせ情報の取得）
+	/**
+	 * 編集（問い合わせ情報の取得）
+	 */
 	@Override
 	public ContactForm getEditContact(Long id) {
 		// DBから情報の取得
@@ -66,7 +72,9 @@ public class ContactServiceImpl implements ContactService {
 		return form;
 	}
 	
-	// 更新
+	/**
+	 * 更新
+	 */
 	@Override
 	public void updateContact(Long id, ContactForm contactForm) {
 		Optional<Contact> contactOpt = contactRepository.findById(id);
@@ -86,7 +94,9 @@ public class ContactServiceImpl implements ContactService {
 		}
 	}
 	
-	// 削除
+	/**
+	 * 削除
+	 */
 	@Override
 	public void deleteContact(Long id) {
 		contactRepository.deleteById(id);
