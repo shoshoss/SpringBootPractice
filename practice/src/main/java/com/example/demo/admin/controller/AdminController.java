@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.admin.form.SigninForm;
 import com.example.demo.admin.form.SignupForm;
 import com.example.demo.admin.service.AdminService;
 import com.example.demo.contact.entity.Contact;
@@ -53,9 +52,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/admin/signin")
-	public String signin(Model model) {
-		model.addAttribute("signinForm", new SigninForm());
-		
+	public String init() {		
 		return "/admin/signin";
 	}
 	

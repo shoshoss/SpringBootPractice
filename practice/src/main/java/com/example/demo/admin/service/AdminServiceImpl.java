@@ -1,6 +1,7 @@
 package com.example.demo.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.admin.entity.Admin;
@@ -11,6 +12,9 @@ import com.example.demo.admin.repository.AdminRepository;
 public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private AdminRepository adminRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public boolean isEmailExists(String email) {
@@ -24,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
 		admin.setLastName(adminForm.getLastName());
 		admin.setFirstName(adminForm.getFirstName());
 		admin.setEmail(adminForm.getEmail());
-		admin.setPassword(adminForm.getPassword());
+		admin.setPassword(passwordEncoder.encode(adminForm.getPassword()));
 
 		adminRepository.save(admin);
 	}
