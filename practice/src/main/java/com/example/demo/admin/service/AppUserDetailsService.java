@@ -1,11 +1,9 @@
 package com.example.demo.admin.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.admin.entity.Admin;
@@ -16,8 +14,7 @@ public class AppUserDetailsService implements UserDetailsService {
 
 		private final AdminRepository adminRepository;
 		
-		@Autowired
-		public AppUserDetailsService(AdminRepository adminRepository, PasswordEncoder passwordEncoder) {
+		public AppUserDetailsService(AdminRepository adminRepository) {
 			this.adminRepository = adminRepository;
 		}
 		
